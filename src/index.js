@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require("body-parser");
 const port = 8080
-import roundTo from 'round-to';
+const roundTo = require('round-to');
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.urlencoded({ extended: false }));
@@ -10,7 +10,6 @@ app.use(express.json());
 const { connection } = require('./connector')
 
 const {data} = require('./data');
-
 app.get('/totalRecovered', (req, res) => {
     let recoveredCount = 0;
     data.map(item => {
